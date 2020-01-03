@@ -1,0 +1,56 @@
+{
+  "name": "fieldbus-data-converter",
+  "version": "0.2.0",
+  "description": "JS Data converter for fieldbus protocol",
+  "main": "./src/converter",
+  "author": "sywide <sylvain.braine@eyxance.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build",
+    "precommit": "lint-staged",
+    "start": "node -r esm index.js",
+    "lint": "eslint ./src",
+    "test": "node ./jestload.js"
+  },
+  "lint-staged": {
+    "src/**/*.{js,mjs,jsx,json,css,md}": [
+      "eslint --fix src",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "fieldbus",
+    "modbus",
+    "int8",
+    "int16",
+    "uint16",
+    "int32",
+    "uint32",
+    "float32",
+    "float64",
+    "integer",
+    "float"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/eyxance/fieldbus-data-converter.git"
+  },
+  "homepage": "https://gitlab.com/eyxance/fieldbus-data-converter",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "esm": "^3.0.36"
+  }
+}
